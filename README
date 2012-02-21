@@ -24,5 +24,16 @@ password: your_api_password
 It is recommended that you symlink this file to the directory after deploy for security reasons. This file is also required for development mode - just fill with dummy data.
 
 == Tests
+To run tests
+  cd to id_verification directory
+  run 'rspec spec'
 
-To run the rspec tests, make sure you are in the lib/api/id_verification directory and type 'spec -cfs spec/' - these tests do not hit the API directly, they use fixtures.
+
+== DK Notes
+to use:
+  run irb
+    load 'id_verification.rb'
+    include API::Base
+    include API::IDVerification
+
+    # check if subject exists in idology system

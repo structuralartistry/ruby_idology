@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'rspec'
 
-require File.dirname(__FILE__) + "/../lib/id_verification"
+require File.dirname(__FILE__) + "/../lib/ruby_idology"
 
 module RequestSpecHelper
   def test_subject

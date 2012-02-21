@@ -1,4 +1,4 @@
-module API
+module RubyIdology
   module Base
 
     class AccessCredentials; end

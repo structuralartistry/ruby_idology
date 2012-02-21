@@ -12,5 +12,5 @@ Gem::Specification.new do |s|
   s.files = ['lib/ruby_idology.rb', 'MIT-LICENSE', 'README']
   s.test_files = Dir['spec/**/*']
 
-  #s.add_dependency 'hpricot'
+  s.add_dependency 'hpricot'
 end

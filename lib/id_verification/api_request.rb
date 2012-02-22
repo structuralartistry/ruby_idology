@@ -12,8 +12,6 @@ module RubyIdology
 
       # test for config file
       if !self.config
-require 'ruby-debug'
-debugger
         begin
           # see if Rails exists
           config_file = Rails.root.join('config', 'ruby_idology', 'config.yml')

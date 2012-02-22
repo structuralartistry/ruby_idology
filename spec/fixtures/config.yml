@@ -1,0 +1,19 @@
+# IDology RubyIdology username and password
+#username: test_username
+#password: test_password
+
+info: &default
+  username: test_username
+  password: test_password
+
+test:
+  <<: *default
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

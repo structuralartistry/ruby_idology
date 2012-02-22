@@ -1,0 +1,15 @@
+info: &default
+  username: MedivoDev
+  password: Med1vo122081
+
+test:
+  <<: *default
+
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

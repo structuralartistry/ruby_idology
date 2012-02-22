@@ -6,7 +6,7 @@ include RubyIdology::IDVerification
 describe Request do
 
   it "should initialize with credentials from config.yml" do
-    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/sample_config.yml")
+    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/config.yml")
     req = RubyIdology::IDVerification::Request.new
     req.credentials.username.should eql("test_username")
     req.credentials.password.should eql("test_password")
@@ -18,7 +18,7 @@ describe SearchRequest do
   include RequestSpecHelper
 
   before(:each) do
-    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/sample_config.yml")
+    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/config.yml")
     @search_request = SearchRequest.new
   end
 
@@ -54,7 +54,7 @@ describe VerificationQuestionsRequest do
   include RequestSpecHelper
 
   before(:each) do
-    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/sample_config.yml")
+    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/config.yml")
     @questions_request = VerificationQuestionsRequest.new
   end
 
@@ -82,7 +82,7 @@ describe VerificationRequest do
   include RequestSpecHelper
 
   before(:each) do
-    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/sample_config.yml")
+    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/config.yml")
     @verification_request = VerificationRequest.new
   end
 
@@ -118,7 +118,7 @@ describe ChallengeQuestionsRequest do
   include RequestSpecHelper
 
   before(:each) do
-    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/sample_config.yml")
+    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/config.yml")
     @challenge_questions_request = ChallengeQuestionsRequest.new
   end
 
@@ -146,7 +146,7 @@ describe ChallengeVerificationRequest do
   include RequestSpecHelper
 
   before(:each) do
-    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/sample_config.yml")
+    RubyIdology::IDVerification::Request.stub!(:config).and_return(File.dirname(__FILE__) + "/../spec/fixtures/config.yml")
     @challenge_verification_request = ChallengeVerificationRequest.new
   end
 

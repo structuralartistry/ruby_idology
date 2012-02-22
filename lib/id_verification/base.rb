@@ -124,6 +124,12 @@ module RubyIdology
       private
 
       def ssl_post(url, data, headers = {})
+
+        # debugging to console
+        puts 'RubyIdology::IDVerification::Service#ssl_post REQUEST:'
+        puts "url: #{url}"
+        puts "data: #{data}"
+
         url = URI.parse(url)
 
         # create a Proxy class, incase a proxy is being used - will work even if proxy options are nil
@@ -149,11 +155,21 @@ module RubyIdology
           req.set_form_data(data, '&')
 
           # do the POST and return the response body
-          return https.request(req).body
+          response = https.request(req).body
+
+          # debugging to console
+          puts 'RubyIdology::IDVerification::Service#ssl_post RESPONSE:'
+          puts "response: #{response}"
+
+          return response
         }
       end
 
       def log_error(err, method_name)
+        puts 'RubyIdology::IDVerification::Service#log_error:'
+        puts "error: #{err}"
+        puts "method_name: #{method_name}"
+
         logger = Logger.new(File.dirname(__FILE__) + "/log/error.log")
         logger.error "IDology RubyIdology Error in Service.#{method_name} - " + err.message
         logger.close

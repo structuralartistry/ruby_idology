@@ -1,3 +1,16 @@
+== Installation
+
+Reference the ruby_idology repo in the main project Gemfile. Make sure you have require 'false' set. Otherwise the gem will load and there is an issue with a nil value for Rails.env if the gem loads early.
+
+  gem 'ruby_idology', :path => '~/Documents/programming/projects/ruby_idology', :require => false
+
+Create the path in the main project: app_root/config/ruby_idology.
+Copy the ruby_idology_config.yml.example to the directory above (remove .example of course!).
+Set the credentials as appropriate in the above yml file. 
+When you want to access the gems functionlity, require it: "require 'ruby_idology'"
+
+
+
 == Notes
 
 This code has come straight from a production Rails app. It will soon be a Rails plugin, but for now, I suggest putting it in the lib/ directory of your Rails project.

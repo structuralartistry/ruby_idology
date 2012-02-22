@@ -4,6 +4,7 @@ require 'rspec'
 require File.dirname(__FILE__) + "/../lib/ruby_idology"
 
 module RequestSpecHelper
+
   def test_subject
     subject = RubyIdology::IDVerification::Subject.new(
       {

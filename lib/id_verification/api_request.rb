@@ -11,15 +11,35 @@ module RubyIdology
       end
 
       # test for config file
-      if ! File.exist?(File.dirname(__FILE__) + "/config.yml")
-        raise Exception, "config file for RubyIdology::IDVerification not present - try reading the README file"
+      if !self.config
+require 'ruby-debug'
+debugger
+        begin
+          # see if Rails exists
+          config_file = Rails.root.join('config', 'ruby_idology', 'config.yml')
+          self.config = config_file
+        rescue
+          # if rails does not exist then this is probably the test suite
+          config_file = File.join('spec', 'fixtures', 'config.yml')
+          self.config = config_file
+        end
+
+        if ! File.exist?(config_file)
+          # this is the case where rails exists but is not configured correctly
+          raise Exception, "config file for RubyIdology::IDVerification not present - try reading the README file"
+        end
       end
 
-      # must be in the same directory as this file
-      self.config = File.dirname(__FILE__) + "/config.yml"
-
       def initialize
-        config = YAML::load(File.open(Request.config))
+        config_options = YAML::load(File.open(Request.config))
+        begin
+          environment = Rails.env.to_s
+        rescue
+          # we are in the test suite
+          environment = 'test'
+        end
+        config = config_options[environment]
+
         self.credentials = RubyIdology::Base::BasicAccessCredentials.new(:username => config['username'], :password => config['password'])
       end
 
